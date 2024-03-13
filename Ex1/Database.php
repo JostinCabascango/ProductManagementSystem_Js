@@ -14,12 +14,16 @@ class Database
 
     public function query($sql)
     {
-        if ($this->connection->query($sql) === TRUE) {
-            return "New record created successfully";
-        } else {
-            return "Error: " . $sql . "<br>" . $this->connection->error;
+        $result = $this->connection->query($sql);
+        if ($result === TRUE) {
+            return TRUE;
         }
+        if ($result === FALSE) {
+            throw new Exception("Error: " . $sql . "<br>" . $this->connection->error);
+        }
+        return $result;
     }
+
     public function close()
     {
         $this->connection->close();
