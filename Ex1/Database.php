@@ -3,6 +3,7 @@
 class Database
 {
     private $connection;
+    public $error;
 
     public function __construct($host, $user, $password, $database)
     {
@@ -15,11 +16,8 @@ class Database
     public function query($sql)
     {
         $result = $this->connection->query($sql);
-        if ($result === TRUE) {
-            return TRUE;
-        }
         if ($result === FALSE) {
-            throw new Exception("Error: " . $sql . "<br>" . $this->connection->error);
+            $this->error = "Error: " . $sql . "<br>" . $this->connection->error;
         }
         return $result;
     }
@@ -28,5 +26,4 @@ class Database
     {
         $this->connection->close();
     }
-
 }
