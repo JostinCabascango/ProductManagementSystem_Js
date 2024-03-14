@@ -20,7 +20,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $object = new stdClass();
-        $object->nom = $row["nom"];
+        $object->nom = $row["productName"];
         $object->addEdit = $row["id"];
        
         echo json_encode($object);

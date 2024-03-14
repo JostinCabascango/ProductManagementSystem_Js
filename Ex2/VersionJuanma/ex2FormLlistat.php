@@ -28,7 +28,7 @@ $array = array();
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        array_push($array, array("id" =>$row["id"], "nom"=>$row["nom"]));            
+        array_push($array, array("id" =>$row["id"], "productName"=>$row["productName"]));
     }
 } else {
     echo "0 results";
@@ -68,7 +68,7 @@ $conn->close();
                         for($i=0; $i<sizeof($array); $i++){
                             echo '<tr>
                                         <th scope="row">' . $array[$i]["id"] . '</th>
-                                        <td>' . $array[$i]["nom"] . '</td>
+                                        <td>' . $array[$i]["productName"] . '</td>
                                         <td><p idProd="' . $array[$i]["id"] . '" class="btnEdit btn btn-outline-info">Edit</p></td>
                                         <td><a href="" class="btn btn-outline-danger">Remove</a></td>
                                     </tr>';
