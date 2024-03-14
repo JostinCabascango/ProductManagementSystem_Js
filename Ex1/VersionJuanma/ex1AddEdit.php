@@ -13,10 +13,10 @@
     }
         
     if(isset($_POST["nomProducte"]) && !empty($_POST["nomProducte"])){
-        if($_POST["addEdit"]==0){
-            $sql = "INSERT INTO productes (nom) VALUES ('" . $_POST["nomProducte"] ."')";
+        if($_POST["productId"]==0){
+            $sql = "INSERT INTO productes (productName) VALUES ('" . $_POST["nomProducte"] ."')";
         }else{
-            $sql = "UPDATE productes SET nom='" . $_POST["nomProducte"] . "' WHERE id=" . $_POST["addEdit"];
+            $sql = "UPDATE productes SET productName='" . $_POST["nomProducte"] . "' WHERE id=" . $_POST["productId"];
         }
         
 

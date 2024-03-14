@@ -28,7 +28,7 @@
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            array_push($array, array("id" =>$row["id"], "nom"=>$row["nom"]));            
+            array_push($array, array("id" =>$row["id"], "productName"=>$row["productName"]));
         }
     } else {
         echo "0 results";
@@ -56,7 +56,7 @@
                 for($i=0; $i<sizeof($array); $i++){
                     echo '<tr>
                                 <th scope="row">' . $array[$i]["id"] . '</th>
-                                <td>' . $array[$i]["nom"] . '</td>
+                                <td>' . $array[$i]["productName"] . '</td>
                                 <td><a href="ex1Form.php?id=' . $array[$i]["id"] . '" class="btn btn-outline-info">Edit</a></td>
                                 <td><a href="" class="btn btn-outline-danger">Remove</a></td>
                             </tr>';
