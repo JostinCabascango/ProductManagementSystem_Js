@@ -66,40 +66,17 @@ $products = getProducts();
                     <th scope="row"><?= $product["id"] ?></th>
                     <td><?= $product["productName"] ?></td>
                     <td><p idProd="<?= $product["id"] ?>" class="btnEdit btn btn-outline-info">Edit</p></td>
-                    <td><a href="" class="btn btn-outline-danger">Remove</a></td>
+                    <td><p idProd="<?= $product["id"] ?>" class="btnDelete btn btn-outline-danger">Remove</p></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
         </table>
     </div>
+    <!--Mostrar el resultado de eliminar un producto-->
+    <div id="message">
+
+    </div>
 </div>
-
-<script>
-    let btnEdit = document.querySelectorAll(".btnEdit");
-    btnEdit.forEach(el => {
-        el.addEventListener("click", function () {
-
-            let formData = new FormData();
-            formData.append("id", this.getAttribute("idProd"));
-
-            let options = {
-                method: 'POST',
-                body: formData
-            }
-
-            fetch("getProducte.php", options)
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data);
-                    document.getElementById("productName").value = data.name;
-                    document.getElementById("productId").value = data.id;
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-
-        })
-    })
-</script>
+<script src="app.js"></script>
 </body>
 </html>
