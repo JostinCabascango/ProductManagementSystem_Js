@@ -46,16 +46,15 @@ function createFormData(id, productId) {
 
 function handleProductDeletion(data) {
     showAlert(data.message, data.status);
-    setTimeout(() => location.reload(), 1500);
+    setTimeout(() => location.reload(), 1200);
 }
 
 function showAlert(message, type) {
     const alertPlaceholder = document.getElementById('message');
-    const alertBox = `
+    alertPlaceholder.innerHTML = `
         <div class="alert alert-${type} alert-dismissible fade show" role="alert">
             ${message}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     `;
-    alertPlaceholder.innerHTML = alertBox;
 }
